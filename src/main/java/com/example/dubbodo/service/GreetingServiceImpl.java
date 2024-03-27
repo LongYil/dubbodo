@@ -6,7 +6,7 @@ import org.apache.dubbo.config.annotation.DubboService;
 //@DubboService(registry = {"beijing"})
 public class GreetingServiceImpl implements GreetingService {
     @Override
-    public String sayHello(String name) {
+    public String sayHello6(String name) {
         return "Hello, " + name;
     }
 }

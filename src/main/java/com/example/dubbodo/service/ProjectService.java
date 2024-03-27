@@ -6,4 +6,6 @@ package com.example.dubbodo.service;
  */
 public interface ProjectService {
     String sayHello(String name);
+    String sayHello2(String name);
+    String sayHello3(String name);
 }
