@@ -7,7 +7,10 @@ dubbo:
   application:
     name: dubbodo
   registry:
-    address: nacos:10.10.101.243:32576
+    username: test
+    password: test
+    address: nacos://10.10.101.246:32576
+    timeout: 3000
   protocol:
     port: 20880
     name: dubbo
