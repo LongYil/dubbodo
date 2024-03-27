@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: dubbo-demo-provider
+
+dubbo:
+  registry:
+    address: http://10.10.101.243:32531/
+  protocol:
+    port: 20880
+    name: dubbo
+

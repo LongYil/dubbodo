@@ -1,0 +1,15 @@
+#spring:
+#  profiles:
+#    # 指定读取配置文件:dev(开发环境),prod(生产环境),qa(测试环境)
+#    active: eureka
+
+spring:
+  application:
+    name: dubbo-demo-provider
+
+dubbo:
+  registry:
+    address: http://10.10.101.243:32531/
+  protocol:
+    port: 20880
+    name: dubbo
