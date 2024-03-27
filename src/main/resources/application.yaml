@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: dubbo-demo-provider
+
+dubbo:
+  registry:
+    address: zookeeper://10.10.101.28:30914
+    group: demo1
+  protocol:
+    port: 20880
+    name: dubbo
+
