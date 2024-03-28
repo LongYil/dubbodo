@@ -2,7 +2,7 @@ spring:
   application:
     name: dubbo-demo-provider
 
-
+# consul版本为v1.18.0-dev
 dubbo:
   application:
     name: dubbodo
