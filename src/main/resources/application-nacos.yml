@@ -2,7 +2,7 @@ spring:
   application:
     name: dubbo-demo-provider
 
-
+# nacos版本为2.0.3 nacos用户名密码默认为 nacos/nacos
 dubbo:
   application:
     name: dubbodo
