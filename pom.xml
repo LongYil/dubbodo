@@ -17,13 +17,6 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-starter -->
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>2.7.23</version>
-        </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -31,14 +24,19 @@
             <version>2.5.10</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-registry-consul -->
+        <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-starter -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>2.7.23</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.apache.dubbo.extensions/dubbo-configcenter-consul -->
         <dependency>
             <groupId>org.apache.dubbo.extensions</groupId>
             <artifactId>dubbo-configcenter-consul</artifactId>
             <version>1.0.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
 
         <!-- https://mvnrepository.com/artifact/org.apache.dubbo.extensions/dubbo-metadata-report-consul -->
         <dependency>
@@ -46,14 +44,6 @@
             <artifactId>dubbo-metadata-report-consul</artifactId>
             <version>1.0.1</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.apache.dubbo.extensions</groupId>-->
-<!--            <artifactId>dubbo-registry-consul</artifactId>-->
-<!--            <version>1.0.2-SNAPSHOT</version>-->
-<!--        </dependency>-->
-
-        <!-- https://mvnrepository.com/artifact/com.orbitz.consul/consul-client -->
 
         <!-- https://mvnrepository.com/artifact/com.orbitz.consul/consul-client -->
         <dependency>
