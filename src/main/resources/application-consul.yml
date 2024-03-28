@@ -7,7 +7,7 @@ dubbo:
   application:
     name: dubbodo
   registry:
-    address: consul:10.10.101.243:31823
+    address: consul://10.10.101.243:31823?consul-watch-timeout=1
   protocol:
     port: 20880
     name: dubbo
