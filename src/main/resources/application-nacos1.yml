@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: dubbo-demo-provider
+
+# 支持nacos 1.4.1
+dubbo:
+  application:
+    name: dubbodo
+  registry:
+    username: nacos
+    password: nacos
+    address: nacos://10.10.101.243:30216
+    timeout: 3000
+  protocol:
+    port: 20880
+    name: dubbo
+
