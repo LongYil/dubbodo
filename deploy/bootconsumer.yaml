@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bootconsumer
+    version: v1
+  name: bootconsumer-v1
+  namespace: sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bootconsumer
+      version: v1
+  template:
+    metadata:
+      labels:
+        version: v1
+        app: bootconsumer
+    spec:
+      containers:
+        - name: bootconsumer
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          image: 10.10.102.113:8443/library/bootconsumer:v1.0.0
+          env:
+            - name: serverAddr
+              value: chatmesh
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: bootconsumer
+    service: bootconsumer
+  name: bootconsumer
+  namespace: sample
+spec:
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - name: http
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+  selector:
+    app: bootconsumer
+  sessionAffinity: None
+  type: ClusterIP

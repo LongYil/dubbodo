@@ -1,12 +1,10 @@
 spring:
   profiles:
     # 指定读取配置文件:dev(开发环境),prod(生产环境),qa(测试环境)
-    active: consul
+    active: demo
+
 #logging:
 #  level:
 #    root: debug
-okhttp:
-  client:
-    connect-timeout: 10s   # 连接超时时间为 10 秒
-    read-timeout: 30s      # 读取超时时间为 30 秒
-    write-timeout: 20s     # 写入超时时间为 20 秒
+server:
+  port: 9090
