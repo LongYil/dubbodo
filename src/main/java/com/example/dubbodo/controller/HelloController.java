@@ -49,6 +49,7 @@ public class HelloController {
             log.info("本次请求结果为：{}", msg);
             return msg;
         }
+        log.info("请求远端服务:{}", providerService);
         try {
             msg = myClient.say(providerService, port, msg);
         } catch (Exception e) {
