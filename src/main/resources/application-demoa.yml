@@ -3,3 +3,10 @@ spring:
     name: bootconsumera
 
 
+forest:
+  max-connections:  ${forest_connections:1000}       # 连接池最大连接数（默认为 500）
+  timeout:  ${forest_timeout:30000}                  # [已不推荐使用] 请求超时时间，单位为毫秒（默认为 3000）
+  connect-timeout: ${forest_connect_timeout:30000}   # 连接超时时间，单位为毫秒（默认为 timeout）
+  read-timeout: ${forest_read_timeout:30000}
+
+
