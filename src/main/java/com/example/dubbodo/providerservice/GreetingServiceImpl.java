@@ -1,5 +1,6 @@
-package com.example.dubbodo.service;
+package com.example.dubbodo.providerservice;
 
+import com.example.dubbodo.common.GreetingService;
 import org.apache.dubbo.config.annotation.DubboService;
 
 @DubboService

@@ -2,14 +2,15 @@ spring:
   application:
     name: dubbo-demo-provider
 
-
 dubbo:
   application:
     name: dubbodo
   registry:
-    address: zookeeper://10.10.101.28:30914
+    address: zookeeper://110.40.140.47:2181
     group: demo1
   protocol:
     port: 20880
     name: dubbo
 
+server:
+  port: 8088
