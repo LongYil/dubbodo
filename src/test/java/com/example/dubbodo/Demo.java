@@ -6,6 +6,9 @@ package com.example.dubbodo;
 //import com.alibaba.nacos.api.naming.NamingService;
 //import com.alibaba.nacos.api.naming.pojo.Instance;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -15,31 +18,11 @@ import java.util.Properties;
 public class Demo {
 
     public static void main(String[] args) {
-        try {
-//            String dataId = "1399071a-cf87-4066-b632-59e974f2e0cf";
-//            String group = "DEFAULT_GROUP";
-//            Properties properties = new Properties();
-//            properties.put("serverAddr", "10.10.101.246:32576");
-//            ConfigService configService = NacosFactory.createConfigService(properties);
-//
-//            String content = configService.getConfig(dataId, group, 5000);
-//            System.out.println(content);
-//            Properties properties = new Properties();
-//            properties.put("serverAddr", "10.10.101.246:32576");
-//            properties.put("username", "test");
-//            properties.put("password", "test");
-//            NamingService namingService = NacosFactory.createNamingService(properties);
-//            String serverStatus = namingService.getServerStatus();
-//            System.out.println(serverStatus);
-//            Instance instance = new Instance();
-//            instance.setInstanceId("welcome");
-//            instance.setServiceName("sayhello");
-//            instance.setIp("10.10.101.140");
-//            namingService.registerInstance("user", instance);
+        List<Integer>  ports = new ArrayList<>();
+        ports.add(1);
+        ports.add(2);
+        ports.add(3);
 
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        System.out.println(Arrays.toString(ports.toArray()));
     }
 }

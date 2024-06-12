@@ -30,9 +30,35 @@ public class HelloController {
 
     private String port = "9090";
 
+    private static Integer errorCount = 5;
+
     @GetMapping("/say")
-    public String say(HttpServletRequest request, @RequestParam String msg) {
-        log.info("收到请求信息：{}", msg);
+    public String say(HttpServletRequest request,
+                      @RequestParam String msg,
+                      @RequestParam(required = false, defaultValue = "1") Integer wait,
+                      @RequestParam(required = false, defaultValue = "1") Integer errorNum,
+                      @RequestParam(required = false, defaultValue = "") String injectError) {
+        log.info("收到请求:msg={}", msg);
+        if (!StringUtils.isNotEmpty(injectError)) {
+            injectError = System.getenv().get("INJECT_ERROR");
+        }
+        if ("true".equalsIgnoreCase(injectError)) {
+            if (errorCount > 0) {
+                errorCount--;
+                Integer.parseInt("true");
+            }
+        }
+        errorCount = 5;
+        log.info("收到请求信息：{}，等待{}秒", msg, wait);
+        try {
+            for (int i = 0; i < wait; i++) {
+                log.info("已等待:{}秒", i);
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         log.info("=====================开始打印header=====================");
         Enumeration<String> headerNames = request.getHeaderNames();
         if (headerNames != null) {
@@ -51,7 +77,7 @@ public class HelloController {
         }
         log.info("请求远端服务:{}", providerService);
         try {
-            msg = myClient.say(providerService, port, msg);
+            msg = myClient.say(providerService, port, msg, errorNum);
         } catch (Exception e) {
             log.info("请求服务{}出错了", providerService, e);
         }

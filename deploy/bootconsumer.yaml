@@ -5,7 +5,6 @@ metadata:
     app: bootconsumer
     version: v1
   name: bootconsumer-v1
-  namespace: sample
 spec:
   replicas: 1
   selector:
@@ -27,8 +26,10 @@ spec:
               protocol: TCP
           image: 10.10.102.113:8443/library/bootconsumer:v1.0.0
           env:
-            - name: serverAddr
-              value: chatmesh
+            - name: PROVIDER_SERVICE
+              value: ""
+            - name: INJECT_ERROR
+              value: false
             - name: POD_IP
               valueFrom:
                 fieldRef:
@@ -37,6 +38,14 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
 
 ---
 apiVersion: v1
@@ -46,7 +55,6 @@ metadata:
     app: bootconsumer
     service: bootconsumer
   name: bootconsumer
-  namespace: sample
 spec:
   ipFamilies:
     - IPv4
