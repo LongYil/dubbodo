@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Stream;
 
 /**
  * @author liyinlong
@@ -18,11 +19,21 @@ import java.util.Properties;
 public class Demo {
 
     public static void main(String[] args) {
-        List<Integer>  ports = new ArrayList<>();
-        ports.add(1);
-        ports.add(2);
-        ports.add(3);
+        List<String> list = new ArrayList<>();
 
-        System.out.println(Arrays.toString(ports.toArray()));
+        for (int i=0;i<10;i++){
+            list.add(String.valueOf(i));
+        }
+
+        list.stream().parallel().forEach(item ->{
+            System.out.println("开始任务:" + item);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("结束任务:" + item);
+        });
+
     }
 }

@@ -8,7 +8,7 @@ dubbo:
     name: dubbodo
   registries:
     beijing:
-      address: zookeeper://10.10.101.28:30914
+      address: zookeeper://110.40.140.47:12181
       group: demo1
 
   protocol:
